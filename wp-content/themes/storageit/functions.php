@@ -439,6 +439,7 @@ add_image_size( 'testimonial_image', 99, 99 );
 
 
 add_image_size( 'banner_image', 1920, 648 );  
+add_image_size( 'help_image', 255, 201 ); 
 
 /**************testimonials post*****************/
 function post_testimonial() {
@@ -657,3 +658,5 @@ function post_aboutus() {
   register_post_type( 'aboutus', $args ); 
 }
 add_action( 'init', 'post_aboutus' );
+
+

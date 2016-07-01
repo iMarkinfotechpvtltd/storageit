@@ -15,7 +15,7 @@
 
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<?php wp_head(); ?>
     <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/images/fab-icon.ico" sizes="16x16">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.min.css">
@@ -83,6 +83,10 @@
 							
                             </ul>
                         </nav>
+                    </div>
+                    
+                    <div class="resp_menu">
+                    <?php echo do_shortcode( '[responsive-menu]' ); ?>
                     </div>
                 </div>
             </div>

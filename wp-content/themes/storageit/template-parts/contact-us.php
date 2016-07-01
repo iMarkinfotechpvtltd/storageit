@@ -57,7 +57,7 @@ get_header(); ?>
                 <div class="contact_info">
                     <div class="container">
                         <div class="row">
-                            <div class="col-sm-6 pull-right custom-form ">
+                            <div class="col-sm-6 col-xs-6 pull-right custom-form ">
 									
 									<?php echo do_shortcode('[contact-form-7 id="126" title="Contact us1"]'); ?>
                                        <!-- <li>

@@ -16,7 +16,7 @@
                         <div class="row">
                             <div class="col-sm-6 links">
                                 <div class="row">
-                                    <div class="links_row col-sm-4">
+                                    <div class="links_row col-sm-4 col-xs-4">
                                         <h5>ABOUT US</h5>
                                         <ul class="footer_links">
                                             <?php wp_nav_menu( array( 'theme_location' => 'footer_about_us', 'container' => '', 'menu_class' => 'navigation' ) ); ?>
@@ -41,13 +41,13 @@
 											<a target="_blank" href="<?php echo $insta; ?>"><i class="fa fa-instagram" aria-hidden="true"></i></a><?php } ?></li>
                                         </ul>
                                     </div>
-                                    <div class="links_row col-sm-4">
+                                    <div class="links_row col-sm-4 col-xs-4">
                                         <h5>QUICK LINKS</h5>
                                         <ul class="footer_links">
                                             <?php wp_nav_menu( array( 'theme_location' => 'quick_links', 'container' => '', 'menu_class' => '' ) ); ?>
                                         </ul>
                                     </div>
-                                    <div class="links_row col-sm-4">
+                                    <div class="links_row col-sm-4 col-xs-4 resp_non">
                                         <h5>&nbsp;</h5>
                                         <ul class="footer_links">
                                             <li><a href="">Home Improvements</a></li>
@@ -96,11 +96,11 @@
                         </div>
                         <div class="imk_cont">
                             <span>
-                    <?php echo get_option_tree('powered_by'); ?> <a target="_blank" href="http://imarkinfotech.com"><img alt="imark-logo" src="<?php echo get_option_tree('powered_by_logo'); ?>"></a>
+                               Powered by <a target="_blank" href="http://imarkinfotech.com">iMark Infotech</a>
                             </span>
                         </div>
-                        <div class="pull-right">
-                            <p><?php echo get_option_tree('copy_right'); ?></p>
+                        <div class="pull-right ftr">
+                            <p>© <?php the_time("Y") ; ?> <?php echo get_option_tree('copy_right'); ?></p>
                         </div>
                     </div>
                 </div>
@@ -154,6 +154,15 @@ jQuery(".custom a").each(function() {
             jQuery(window).load(function () {
                jQuery(".se-pre-con").fadeOut("slow");;
             });
+        </script>
+		<script type="text/javascript">
+            var windowWidth = jQuery(window).width();
+            if (windowWidth <= 991) {
+                jQuery('.email_cont').insertAfter('.menu-header-container');
+            }
+			 if (windowWidth <= 639) {
+                jQuery('.history_image').insertAfter('.history_info');
+            }
         </script>
 
     </div>

@@ -10,15 +10,15 @@
 get_header(); ?>
 
         <div class="paddig-top">
-            <div class="banner display_block  wow fadeIn">
-                <div class="text-center">
-                 <?php if ( has_post_thumbnail() ) {
-                  the_post_thumbnail('banner_image');
-                  } else { ?>
-                 <img src="http://placehold.it/1920x648&amp;text=No image found" alt="<?php the_title(); ?>"/>
-                 <?php } ?>
-				 
-				</div>
+          <?php 
+		    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'banner_image' );
+		      if($image==""){
+			?>
+            <div class="banner display_block  wow fadeIn" style="background-image:url(http://placehold.it/1920x648&amp;text=1920x648);)">
+			
+			<?php }	else{  ?>
+               <div class="banner display_block  wow fadeIn"  style="background-image:url(<?php echo $image[0]; ?>);">
+		   <?php } ?>
                 <div class="container">
                     <div class="inner_banner">
                         <h2><?php echo get_option_tree('banner_heading_text'); ?></h2>
@@ -48,20 +48,32 @@ get_header(); ?>
                     <div class="row">
                         <div class="tabs-main display_block">
                             <ul class="nav nav-tabs wow fadeInUp">
-                                <li class="active col-sm-3"><a data-toggle="tab" href="#mnu1">Moving House</a></li>
-                                <li class="col-sm-3"><a data-toggle="tab" href="#mnu2">Home Improvements</a></li>
-                                <li class="col-sm-3"><a data-toggle="tab" href="#mnu3">De-Cluttering</a></li>
-                                <li class="col-sm-3"><a data-toggle="tab" href="#mnu4">Travelling Overseas</a></li>
-                                <li class="col-sm-3"><a data-toggle="tab" href="#mnu5">Students</a></li>
-                                <li class="col-sm-3"><a data-toggle="tab" href="#mnu6">Leisure</a></li>
+							<?php	
+								$i=1;
+								$args = array('post_type' => 'personalstorage','posts_per_page'=>-1,'order'=>'DESC');
+                                $loop = new WP_Query( $args );
+								
+                                while ( $loop->have_posts() ) : $loop->the_post();
+                                 ?>
+                                <li class="col-sm-3 <?php if($i==1){echo'active';}?>"><a data-toggle="tab" href="#mnu<?php echo $i; ?>"><?php the_title(); ?></a></li>
+								<?php
+                                $i++;								
+								endwhile;
+								wp_reset_query();
+								?>
                             </ul>
                             <div class="tab-content col-sm-12 wow fadeInUp">
-                                <div id="mnu1" class="tab-pane fade in active">
+							<?php	
+								$i=1;
+								$args = array('post_type' => 'personalstorage','posts_per_page'=>-1,'order'=>'DESC');
+                                $loop = new WP_Query( $args );
+								
+                                while ( $loop->have_posts() ) : $loop->the_post();
+                                 ?>
+                                <div id="mnu<?php echo $i;?>" class="tab-pane fade <?php if($i==1){echo'in active';}?>">
                                     <div class="ineer_content display_block">
                                         <div class="mn_cntn display_block">
-                                            <p>With your own large, clean, dry contai ind whatever you've run out of room for or need to keep for a while. Security is paramount - there's only one key and you keep it - and you get access any time, any day of the week.
-                                            </p>
-                                            <p>And when you don't need storage anymore, you just empty the container and hand back the key and fob. With our simple payment scheme, whether you're renting for a week or two or months at a time, you stop paying the day you leave.</p>
+                                            <?php the_content(); ?>
                                         </div>
                                         <div class="contact_tabs display_block">
                                             <strong>To book a container or to find out more:</strong>
@@ -75,97 +87,11 @@ get_header(); ?>
                                     </div>
 
                                 </div>
-                                <div id="mnu2" class="tab-pane fade">
-                                    <div class="ineer_content display_block">
-                                        <div class="mn_cntn display_block">
-                                            <p>With your own large, clean, dry contai ind whatever you've run out of room for or need to keep for a while. Security is paramount - there's only one key and you keep it - and you get access any time, any day of the week.
-                                            </p>
-                                            <p>And when you don't need storage anymore, you just empty the container and hand back the key and fob. With our simple payment scheme, whether you're renting for a week or two or months at a time, you stop paying the day you leave.</p>
-                                        </div>
-                                        <div class="contact_tabs display_block">
-                                            <strong>To book a container or to find out more:</strong>
-                                            <div class="tabs_no display_block">
-                                                <a href="tel:01698619150">01698 619150</a> &#44;
-                                                <a href="tel:01555435001">01555 435001</a>
-                                            </div>
-                                            <div class="display_block">
-                                                <a class="contact_us" href="">CONTACT US HERE</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="mnu3" class="tab-pane fade">
-                                    <div class="ineer_content display_block">
-                                        <div class="mn_cntn display_block">
-                                            <p>With your own large, clean, dry contai ind whatever you've run out of room for or need to keep for a while. Security is paramount - there's only one key and you keep it - and you get access any time, any day of the week.
-                                            </p>
-                                            <p>And when you don't need storage anymore, you just empty the container and hand back the key and fob. With our simple payment scheme, whether you're renting for a week or two or months at a time, you stop paying the day you leave.</p>
-                                        </div>
-                                        <div class="contact_tabs display_block">
-                                            <strong>To book a container or to find out more:</strong>
-                                            <div class="tabs_no display_block">
-                                                <a href="tel:01698619150">01698 619150</a> &#44;
-                                                <a href="tel:01555435001">01555 435001</a>
-                                            </div>
-                                            <div class="display_block">
-                                                <a class="contact_us" href="">CONTACT US HERE</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="mnu4" class="tab-pane fade">
-                                    <div class="ineer_content display_block">
-                                        <div class="mn_cntn display_block">
-                                            <p>With your own large, clean, dry contai ind whatever you've run out of room for or need to keep for a while. Security is paramount - there's only one key and you keep it - and you get access any time, any day of the week.
-                                            </p>
-                                            <p>And when you don't need storage anymore, you just empty the container and hand back the key and fob. With our simple payment scheme, whether you're renting for a week or two or months at a time, you stop paying the day you leave.</p>
-                                        </div>
-                                        <div class="contact_tabs display_block">
-                                            <strong>To book a container or to find out more:</strong>
-                                            <div class="tabs_no display_block">
-                                                <a href="tel:01698619150">01698 619150</a> &#44;
-                                                <a href="tel:01555435001">01555 435001</a>
-                                            </div>
-                                            <div class="display_block">
-                                                <a class="contact_us" href="">CONTACT US HERE</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="mnu5" class="tab-pane fade">
-                                    <div class="ineer_content display_block">
-                                        <div class="mn_cntn display_block">
-                                            <p>With your own large, clean, dry contai ind whatever you've run out of room for or need to keep for a while. Security is paramount - there's only one key and you keep it - and you get access any time, any day of the week.
-                                            </p>
-                                            <p>And when you don't need storage anymore, you just empty the container and hand back the key and fob. With our simple payment scheme, whether you're renting for a week or two or months at a time, you stop paying the day you leave.</p>
-                                        </div>
-                                        <div class="contact_tabs display_block">
-                                            <strong>To book a container or to find out more:</strong>
-                                            <div class="tabs_no display_block">
-                                                <a href="tel:01698619150">01698 619150</a> &#44;
-                                                <a href="tel:01555435001">01555 435001</a>
-                                            </div>
-                                            <div class="display_block">
-                                                <a class="contact_us" href="">CONTACT US HERE</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="mnu6" class="tab-pane fade">
-                                    <div class="ineer_content display_block">
-                                        <div class="mn_cntn display_block">
-                                            <p>With your own large, clean, dry contai ind whatever you've run out of room for or need to keep for a while. Security is paramount - there's only one key and you keep it - and you get access any time, any day of the week.
-                                            </p>
-                                            <p>And when you don't need storage anymore, you just empty the container and hand back the key and fob. With our simple payment scheme, whether you're renting for a week or two or months at a time, you stop paying the day you leave.</p>
-                                        </div>
-                                        <div class="contact_tabs display_block">
-                                            <strong>To book a container or to find out more:</strong>
-                                            <div class="tabs_no display_block">
-                                                <a href="tel:01698619150">01698 619150</a> &#44;
-                                                <a href="tel:01555435001">01555 435001</a>
-                                            </div>
-                                            <div class="display_block">
-                                                <a class="contact_us" href="">CONTACT US HERE</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-
+                               <?php
+                                $i++;								
+								endwhile;
+								wp_reset_query();
+								?>  
                             </div>
                         </div>
                     </div>
