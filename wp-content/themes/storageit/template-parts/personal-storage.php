@@ -24,8 +24,8 @@ get_header(); ?>
                         <h2><?php echo get_option_tree('banner_heading_text'); ?></h2>
 
                         <div class="banner_button text-center display_block">
-                            <a href="<?php echo get_option_tree('first_link'); ?>" class="custom"><?php echo get_option_tree('first_link_name_of_banner'); ?></a>
-                            <a href="<?php echo get_option_tree('second_link'); ?>" class="custom"><?php echo get_option_tree('second_link_name_of_banner'); ?></a>
+                            <a href="<?php echo get_option_tree('first_link'); ?>" class="custom personal-storage"><?php echo get_option_tree('first_link_name_of_banner'); ?></a>
+                            <a href="<?php echo get_option_tree('second_link'); ?>" class="custom business-storage"><?php echo get_option_tree('second_link_name_of_banner'); ?></a>
                         </div>
                     </div>
                 </div>
@@ -76,13 +76,13 @@ get_header(); ?>
                                             <?php the_content(); ?>
                                         </div>
                                         <div class="contact_tabs display_block">
-                                            <strong>To book a container or to find out more:</strong>
+                                            <strong><?php echo get_option_tree('text_to_book_container'); ?></strong>
                                             <div class="tabs_no display_block">
-                                                <a href="tel:01698619150">01698 619150</a> &#44;
-                                                <a href="tel:01555435001">01555 435001</a>
+                                                <a href="tel:<?php echo get_option_tree('enter_first_number'); ?>"><?php echo get_option_tree('enter_first_number'); ?></a> &#44;
+                                                <a href="tel:<?php echo get_option_tree('enter_second_number'); ?>"><?php echo get_option_tree('enter_second_number'); ?></a>
                                             </div>
                                             <div class="display_block">
-                                                <a class="contact_us" href="">CONTACT US HERE</a></div>
+                                                <a class="contact_us" href="<?php echo get_option_tree('link_contact_us_text'); ?>"><?php echo get_option_tree('countact_us_text'); ?></a></div>
                                         </div>
                                     </div>
 
@@ -128,7 +128,11 @@ get_header(); ?>
 						
                             <div class="item <?php echo $class; ?>">
                                 <figure class="client_image text-center">
-                                   <span><?php the_post_thumbnail(testimonial_image); ?></span>
+                                   <span><?php if ( has_post_thumbnail() ) {
+                                     the_post_thumbnail('testimonial_image');
+                                     } else { ?>
+                                     <img src="http://placehold.it/99x99&amp;text=No image found" alt="<?php the_title(); ?>"/>
+                                      <?php } ?></span>
                                     <figcaption><?php the_title(); ?></figcaption>
                                 </figure>
                                 <div class="content_slider text-center display_block">
@@ -183,7 +187,21 @@ get_header(); ?>
                     </div>
                 </div>
             </div>
+<script>
+jQuery(document).ready(function(){
+var hash = jQuery(location).attr('href');
+var abc=hash.split("/");
+if(abc[5]!="")
+{
 
+jQuery("."+abc[5]).addClass("active");
+
+}
+
+
+
+});
+</script> 
 
 <?php
 get_footer();

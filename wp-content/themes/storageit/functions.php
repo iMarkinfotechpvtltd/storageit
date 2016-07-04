@@ -431,7 +431,7 @@ function special_nav_class ($classes, $item) {
     }
     return $classes;
 }
-
+/**********************image optimize********************/
 add_image_size( 'service', 459, 284 );    /************service image****/
 add_image_size( 'our_history_image', 514, 519 );    /***********our history********/
 
@@ -660,3 +660,20 @@ function post_aboutus() {
 add_action( 'init', 'post_aboutus' );
 
 
+/**********************************login logo****************/
+function custom_loginlogo() {
+echo '<style type="text/css">
+h1 a {background-image: url('.get_bloginfo('template_directory').'/images/logo.png) !important; }
+</style>';
+}
+add_action('login_head', 'custom_loginlogo');
+
+function my_login_logo_url() {
+   return get_bloginfo( 'url' );
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+function my_login_logo_url_title() {
+   return 'Your Site Name and Info';
+}
+add_filter( 'login_headertitle', 'my_login_logo_url_title' );

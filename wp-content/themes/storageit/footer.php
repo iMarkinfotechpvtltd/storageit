@@ -63,9 +63,7 @@
                                     <h5>NEWSLETTER</h5>
                                     <small>If you want revice our all weekly update signup below</small>
                                     <div class="newsletter_form display_block">
-                                        <form>
                                             <?php echo do_shortcode('[mc4wp_form id="81"]'); ?>
-                                        </form>
                                     </div>
                                 </div>
                                 <div class="get_in">
@@ -162,9 +160,25 @@ jQuery(".custom a").each(function() {
             }
 			 if (windowWidth <= 639) {
                 jQuery('.history_image').insertAfter('.history_info');
+                jQuery('.map').insertAfter('.contact_info');
             }
         </script>
+	 <script>
+jQuery(document).ready(function(){
+var hash = jQuery(location).attr('href');
+var abc=hash.split("/");
 
+ if(abc[4]!="")
+ {
+
+ jQuery("."+abc[4]).addClass("active");
+
+ }
+
+
+
+});
+</script>
     </div>
 </body>
 

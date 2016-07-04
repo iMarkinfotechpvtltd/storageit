@@ -11,15 +11,15 @@ get_header(); ?>
 
 
         <div class="paddig-top">
-            <div class="banner display_block  wow fadeIn">
-                <div class="text-center">
-                 <?php if ( has_post_thumbnail() ) {
-                  the_post_thumbnail('banner_image');
-                  } else { ?>
-                 <img src="http://placehold.it/1920x648&amp;text=No image found" alt="<?php the_title(); ?>"/>
-                 <?php } ?>
-				 
-				</div>
+            <?php 
+		    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'banner_image' );
+		      if($image==""){
+			?>
+            <div class="banner display_block  wow fadeIn" style="background-image:url(http://placehold.it/1920x648&amp;text=1920x648);)">
+			
+			<?php }	else{  ?>
+               <div class="banner display_block  wow fadeIn"  style="background-image:url(<?php echo $image[0]; ?>);">
+		   <?php } ?>
                 <div class="container">
                     <div class="inner_banner">
                         <h2><?php echo get_option_tree('banner_heading_text'); ?></h2>
@@ -49,89 +49,50 @@ get_header(); ?>
                     <div class="row">
                         <div class="tabs-main display_block">
                             <ul class="nav nav-tabs wow fadeInUp">
-                                <li class="active col-sm-3"><a data-toggle="tab" href="#mnu1">Why use Storageit </a></li>
-                                <li class="col-sm-3"><a data-toggle="tab" href="#mnu2">How to find us</a></li>
-                                <li class="col-sm-3"><a data-toggle="tab" href="#mnu3">Storage Tips</a></li>
-                                <li class="col-sm-3"><a data-toggle="tab" href="#mnu4">Frequently Asked Questions</a></li>
+							<?php	
+								$i=1;
+								$args = array('post_type' => 'aboutus','posts_per_page'=>-1,'order'=>'DESC');
+                                $loop = new WP_Query( $args );
+                                while ( $loop->have_posts() ) : $loop->the_post();
+                                 ?>
+							
+                               <li class="col-sm-3 <?php if($i==1){echo'active';}?>"><a data-toggle="tab" href="#mnu<?php echo $i; ?>"><?php the_title(); ?></a>                                </li>
+                                <?php
+                                $i++;								
+								endwhile;
+								wp_reset_query();
+								?> 
                             </ul>
                             <div class="tab-content col-sm-12 wow fadeInUp">
-                                <div id="mnu1" class="tab-pane fade in active">
+							<?php	
+								$i=1;
+								$args = array('post_type' => 'aboutus','posts_per_page'=>-1,'order'=>'DESC');
+                                $loop = new WP_Query( $args );
+                                while ( $loop->have_posts() ) : $loop->the_post();
+                                 ?>
+                                <div id="mnu<?php echo $i;?>" class="tab-pane fade <?php if($i==1){echo'in active';}?>">
                                     <div class="ineer_content display_block">
                                         <div class="mn_cntn display_block">
-                                            <p>Our clean, dry, purpose-built containers keep things simple. You drive up, load in and drive off with the only key to the fitted Mul-T-Lock.
-                                            </p>
-                                            <p>Need access? You've got it, 24 hours a day, 7 days a week.</p>
-                                            <p>And you don't have to worry about being tied into a minimum hire term or overpaying. Our extremely competitive rates are calculated daily, so you only pay for what you use. Short-term or long-term use, you only pay until the day you no longer need our storage solutions. It's as simple as that.</p>
+                                            <?php the_content(); ?>
                                         </div>
                                         <div class="contact_tabs display_block">
-                                            <strong>To book a container or to find out more:</strong>
+                                            <strong><?php echo get_option_tree('text_to_book_container'); ?></strong>
                                             <div class="tabs_no display_block">
-                                                <a href="tel:01698619150">01698 619150</a> &#44;
-                                                <a href="tel:01555435001">01555 435001</a>
+                                                <a href="tel:<?php echo get_option_tree('enter_first_number'); ?>"><?php echo get_option_tree('enter_first_number'); ?></a> &#44;
+                                                <a href="tel:<?php echo get_option_tree('enter_second_number'); ?>"><?php echo get_option_tree('enter_second_number'); ?></a>
                                             </div>
                                             <div class="display_block">
-                                                <a class="contact_us" href="">CONTACT US HERE</a></div>
+                                                <a class="contact_us" href="<?php echo get_option_tree('link_contact_us_text'); ?>"><?php echo get_option_tree('countact_us_text'); ?></a></div>
                                         </div>
                                     </div>
 
                                 </div>
-                                <div id="mnu2" class="tab-pane fade">
-                                    <div class="ineer_content display_block">
-                                        <div class="mn_cntn display_block">
-                                            <p>Our clean, dry, purpose-built containers keep things simple. You drive up, load in and drive off with the only key to the fitted Mul-T-Lock.
-                                            </p>
-                                            <p>Need access? You've got it, 24 hours a day, 7 days a week.</p>
-                                            <p>And you don't have to worry about being tied into a minimum hire term or overpaying. Our extremely competitive rates are calculated daily, so you only pay for what you use. Short-term or long-term use, you only pay until the day you no longer need our storage solutions. It's as simple as that.</p>
-                                        </div>
-                                        <div class="contact_tabs display_block">
-                                            <strong>To book a container or to find out more:</strong>
-                                            <div class="tabs_no display_block">
-                                                <a href="tel:01698619150">01698 619150</a> &#44;
-                                                <a href="tel:01555435001">01555 435001</a>
-                                            </div>
-                                            <div class="display_block">
-                                                <a class="contact_us" href="">CONTACT US HERE</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="mnu3" class="tab-pane fade">
-                                    <div class="ineer_content display_block">
-                                        <div class="mn_cntn display_block">
-                                            <p>Our clean, dry, purpose-built containers keep things simple. You drive up, load in and drive off with the only key to the fitted Mul-T-Lock.
-                                            </p>
-                                            <p>Need access? You've got it, 24 hours a day, 7 days a week.</p>
-                                            <p>And you don't have to worry about being tied into a minimum hire term or overpaying. Our extremely competitive rates are calculated daily, so you only pay for what you use. Short-term or long-term use, you only pay until the day you no longer need our storage solutions. It's as simple as that.</p>
-                                        </div>
-                                        <div class="contact_tabs display_block">
-                                            <strong>To book a container or to find out more:</strong>
-                                            <div class="tabs_no display_block">
-                                                <a href="tel:01698619150">01698 619150</a> &#44;
-                                                <a href="tel:01555435001">01555 435001</a>
-                                            </div>
-                                            <div class="display_block">
-                                                <a class="contact_us" href="">CONTACT US HERE</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="mnu4" class="tab-pane fade">
-                                    <div class="ineer_content display_block">
-                                        <div class="mn_cntn display_block">
-                                            <p>Our clean, dry, purpose-built containers keep things simple. You drive up, load in and drive off with the only key to the fitted Mul-T-Lock.
-                                            </p>
-                                            <p>Need access? You've got it, 24 hours a day, 7 days a week.</p>
-                                            <p>And you don't have to worry about being tied into a minimum hire term or overpaying. Our extremely competitive rates are calculated daily, so you only pay for what you use. Short-term or long-term use, you only pay until the day you no longer need our storage solutions. It's as simple as that.</p>
-                                        </div>
-                                        <div class="contact_tabs display_block">
-                                            <strong>To book a container or to find out more:</strong>
-                                            <div class="tabs_no display_block">
-                                                <a href="tel:01698619150">01698 619150</a> &#44;
-                                                <a href="tel:01555435001">01555 435001</a>
-                                            </div>
-                                            <div class="display_block">
-                                                <a class="contact_us" href="">CONTACT US HERE</a></div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php
+                                $i++;								
+								endwhile;
+								wp_reset_query();
+								?>
+
                             </div>
                         </div>
                     </div>
@@ -172,7 +133,11 @@ get_header(); ?>
 						
                             <div class="item <?php echo $class; ?>">
                                 <figure class="client_image text-center">
-                                   <span><?php the_post_thumbnail(testimonial_image); ?></span>
+                                   <span><?php if ( has_post_thumbnail() ) {
+                                     the_post_thumbnail('testimonial_image');
+                                     } else { ?>
+                                     <img src="http://placehold.it/99x99&amp;text=No image found" alt="<?php the_title(); ?>"/>
+                                      <?php } ?></span>
                                     <figcaption><?php the_title(); ?></figcaption>
                                 </figure>
                                 <div class="content_slider text-center display_block">

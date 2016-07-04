@@ -152,21 +152,6 @@ get_header(); ?>
                 </div>
 
             </div>
-<!--<script>
-jQuery(document).ready(function(){
-var hash = jQuery(location).attr('href');
-var abc=hash.split("/");
-alert(abc);
-// if(abc[5]!="")
-// {
 
-// jQuery("."+abc[5]).addClass("active");
-
-// }
-
-
-
-});
-</script>-->
 <?php
 get_footer();

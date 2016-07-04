@@ -11,15 +11,15 @@ get_header(); ?>
 
 
 <div class="paddig-top">
-            <div class="banner display_block  wow fadeIn">
-                <div class="text-center">
-                 <?php if ( has_post_thumbnail() ) {
-                  the_post_thumbnail('banner_image');
-                  } else { ?>
-                 <img src="http://placehold.it/1920x648&amp;text=No image found" alt="<?php the_title(); ?>"/>
-                 <?php } ?>
-				 
-				</div>
+             <?php 
+		    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'banner_image' );
+		      if($image==""){
+			?>
+            <div class="banner display_block  wow fadeIn" style="background-image:url(http://placehold.it/1920x648&amp;text=1920x648);)">
+			
+			<?php }	else{  ?>
+               <div class="banner display_block  wow fadeIn"  style="background-image:url(<?php echo $image[0]; ?>);">
+		   <?php } ?>
                 <div class="container">
                     <div class="inner_banner">
                         <h2><?php echo get_option_tree('banner_heading_text'); ?></h2>
