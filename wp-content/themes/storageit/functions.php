@@ -89,6 +89,7 @@ function twentysixteen_setup() {
 		'footer'  => __( 'Footer Links Menu', 'twentysixteen' ),
 		'footer_about_us'  => __( 'About Us Links Menu', 'twentysixteen' ),
 		'quick_links'  => __( 'Quick Links Menu', 'twentysixteen' ),
+		'quick_links_rightside'  => __( 'Right Side quick Links Menu', 'twentysixteen' ),
 	) );
 
 	/*

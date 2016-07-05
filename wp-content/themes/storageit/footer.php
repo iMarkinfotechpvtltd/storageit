@@ -49,11 +49,8 @@
                                     </div>
                                     <div class="links_row col-sm-4 col-xs-4 resp_non">
                                         <h5>&nbsp;</h5>
-                                        <ul class="footer_links">
-                                            <li><a href="">Home Improvements</a></li>
-                                            <li><a href="">De-Cluttering</a></li>
-                                            <li><a href="">Storage Tips</a></li>
-                                            <li><a href="">Contact Us</a></li>
+                                       <ul class="footer_links">
+                                       <?php wp_nav_menu( array( 'theme_location' => 'quick_links_rightside', 'container' => '', 'menu_class' => '' ) ); ?>
                                         </ul>
                                     </div>
                                 </div>
@@ -61,7 +58,7 @@
                             <div class="col-sm-6 news_letter">
                                 <div class="news-letter">
                                     <h5>NEWSLETTER</h5>
-                                    <small>If you want revice our all weekly update signup below</small>
+                                    <small><?php echo get_option_tree('text_on_newslatter'); ?></small>
                                     <div class="newsletter_form display_block">
                                             <?php echo do_shortcode('[mc4wp_form id="81"]'); ?>
                                     </div>
@@ -78,7 +75,7 @@
                                             <a href="tel:<?php echo get_option_tree('enter_first_number'); ?>"><?php echo get_option_tree('enter_first_number'); ?></a> &#44; <a href="tel:<?php echo get_option_tree('enter_second_number'); ?>"><?php echo get_option_tree('enter_second_number'); ?></a></div>
                                     </div>
                                     <div class="Find_us display_block">
-                                        <h5><a href="">Find Us</a></h5>
+                                        <h5><a href="<?php echo get_option_tree('find_us_link'); ?>">Find Us</a></h5>
                                     </div>
                                 </div>
                             </div>
@@ -179,6 +176,40 @@ var abc=hash.split("/");
 
 });
 </script>
+<script type="text/javascript">
+           jQuery(function () {
+               jQuery("input[name='name']").keydown(function (e) {
+                   if (jQuery.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1) {
+                       // let it happen, don't do anything
+                       return;
+                   }
+                   if (e.ctrlKey || e.altKey) {
+                       e.preventDefault();
+                   } else {
+                       var key = e.keyCode;
+                       if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+                           e.preventDefault();
+                       }
+                   }
+               });
+           });
+</script>
+
+
+    <!-- IE Smooth Scrolling -->
+    <script type="text/javascript">
+        if (navigator.userAgent.match(/Trident\/7\./)) { // if IE
+            jQuery('body').on("mousewheel", function () {
+                // remove default behavior
+                event.preventDefault();
+
+                //scroll without smoothing
+                var wheelDelta = event.wheelDelta;
+                var currentScrollPosition = window.pageYOffset;
+                window.scrollTo(0, currentScrollPosition - wheelDelta);
+            });
+        }
+    </script>
     </div>
 </body>
 
