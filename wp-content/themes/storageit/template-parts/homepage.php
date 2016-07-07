@@ -79,7 +79,7 @@ get_header(); ?>
                                 <ul class="nav nav-tabs">
 								<?php	
 								$i=1;
-								$args = array('post_type' => 'help','posts_per_page'=>4,'order'=>'DESC');
+								$args = array('post_type' => 'help','posts_per_page'=>'4','order'=>'DESC');
                                 $loop = new WP_Query( $args );
 								
                                 while ( $loop->have_posts() ) : $loop->the_post();

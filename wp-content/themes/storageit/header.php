@@ -32,9 +32,6 @@
 <body>
 
     <div class="main display_block">
-	<?php if ( is_user_logged_in() ) { ?>
-
-    <?php } // end if ?>
         <header>
             <div class="container">
                 <div class="row">
