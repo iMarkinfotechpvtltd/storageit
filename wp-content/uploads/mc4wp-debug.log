@@ -1,0 +1,8 @@
+[2016-07-08 06:57:31] WARNING: Form 81 > *******fd.com is already subscribed to the selected list(s)
+[2016-07-08 07:01:38] WARNING: Form 81 > *********mail.com is already subscribed to the selected list(s)
+[2016-07-08 07:02:14] WARNING: Form 81 > **************rkinfotech.com is already subscribed to the selected list(s)
+[2016-07-08 07:02:26] WARNING: Form 81 > *********mail.com is already subscribed to the selected list(s)
+[2016-07-08 07:04:34] WARNING: Form 81 > *********mail.com is already subscribed to the selected list(s)
+[2016-07-08 07:07:25] WARNING: Form 81 > *********mail.com is already subscribed to the selected list(s)
+[2016-07-08 07:11:23] WARNING: Form 81 > **************rkinfotech.com is already subscribed to the selected list(s)
+[2016-07-08 07:44:52] ERROR: Form 81 > MailChimp API error: List_RoleEmailMember: abc@gmail.com is an invalid email address and cannot be imported.

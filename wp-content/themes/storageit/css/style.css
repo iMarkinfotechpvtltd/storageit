@@ -190,7 +190,7 @@ header {
 }
 
 nav li {
-    margin: 0 20px 0 0;
+    margin: 0 19px 0 0;
 }
 
 nav li:last-child {
@@ -253,7 +253,8 @@ nav li a {
     width: 658px;
 }
 
-h2 {
+h2,
+.heading h1 {
     font-family: "Raleway", sans-serif;
     font-size: 45px;
     font-weight: 800;
@@ -285,7 +286,7 @@ p {
 }
 
 .custom {
-    background: #96d100 none repeat scroll 0 0;
+    background: rgb(50, 50, 50) none repeat scroll 0 0;
     color: #fff;
     display: inline-block;
     font-size: 16px;
@@ -297,7 +298,7 @@ p {
 
 .custom.active,
 .custom:hover {
-    background-color: rgb(50, 50, 50);
+    background-color: #96d100;
     color: #fff;
 }
 
@@ -845,7 +846,7 @@ header {
     right: 0;
     top: 0;
     width: 100%;
-    z-index: 99;
+    z-index: 999;
 }
 
 .off-canvas {
@@ -902,9 +903,14 @@ header {
     padding: 58px 0 74px;
 }
 
-.storage_info h2 {
+.storage_info h2,
+.heading h1 {
     color: #000;
     font-weight: 600;
+}
+
+.heading {
+    margin: 0 0 18px;
 }
 
 .storage_info p {
@@ -1066,7 +1072,7 @@ figcaption {
     background: rgb(242, 242, 242) none repeat scroll 0 0;
     padding: 47px 0 76px;
     position: relative;
-    z-index: 10;
+    z-index: 99;
 }
 
 .slider_cont .carousel {
@@ -1402,11 +1408,15 @@ footer {
     vertical-align: top;
 }
 
+.about-page p {
+    color: #4d4d4d;
+}
+
 .about-page {
     display: inline-block;
     width: 100%;
     vertical-align: top;
-    margin: 27px 0;
+    margin: 58px 0 74px;
 }
 
 .inner_conten {
@@ -1424,7 +1434,8 @@ footer {
 }
 
 .heading h1 {
-    font-size: 30px;
+    color: #000;
+    text-align: center;
 }
 
 .inner_mn {
@@ -1434,7 +1445,28 @@ footer {
 .mc4wp-response p {
     color: #96d100;
     font-size: 13px;
-    margin: 3px 0 0;
+    font-weight: 600;
+}
+
+.mc4wp-response .mc4wp-error p {
+    color: red;
+    padding: 0;
+    margin: 0;
+    font-weight: 600;
+}
+
+.mc4wp-alert {
+    background: #fff none repeat scroll 0 0;
+    display: inline-block;
+    margin: 5px 0;
+    padding: 2px 6px;
+    width: 97%;
+}
+
+.mc4wp-error {
+    color: red;
+    display: inline-block;
+    font-size: 13px;
 }
 
 .custom-form input.wpcf7-not-valid {
@@ -1450,6 +1482,10 @@ footer {
     margin: 2em 0em 1em;
 }
 
+.heading h1 {
+    text-transform: uppercase;
+}
+
 @media all and (-ms-high-contrast: none),
 (-ms-high-contrast: active) {
     nav li {
@@ -1461,9 +1497,18 @@ footer {
     .container {
         width: 1470px;
     }
+    .paddig-top {
+        margin: 141px 0 0;
+    }
+    .banner {
+        height: 635px
+    }
 }
 
 @media (max-width:1499px) {
+    .mc4wp-alert {
+        width: 99.1%;
+    }
     .email_cont a,
     .email_cont span {
         font-size: 14px;
@@ -1488,7 +1533,8 @@ footer {
     .history_image {
         width: 38%;
     }
-    h2 {
+    h2,
+    .heading h1 {
         font-size: 38px;
     }
     .inner_banner {
@@ -1691,6 +1737,12 @@ footer {
     html {
         padding: 0 0 430px;
     }
+    .mc4wp-alert {
+        width: 98%;
+    }
+    .tabs-main .tab-content {
+        padding-top: 6px;
+    }
 }
 
 @media (max-width:991px) {
@@ -1712,7 +1764,8 @@ footer {
     .info_service p {
         min-height: 145px;
     }
-    h2 {
+    h2,
+    .heading h1 {
         font-size: 25px;
     }
     .inner_banner {
@@ -1884,9 +1937,10 @@ footer {
         width: 417px;
     }
     .tabs-main .nav-tabs > li {
-        width: 32.9%;
-        float: none;
-        display: inline-block;
+        width: 33.33%;
+    }
+    .tabs-main .nav-tabs > li:nth-child(4) {
+        clear: both;
     }
     html {
         padding: 0 0 562px;
@@ -1910,6 +1964,12 @@ footer {
     }
     .site-main {
         padding: 19.333% 0;
+    }
+    .mc4wp-response p {
+        width: 89%;
+    }
+    .mc4wp-alert {
+        width: 87.4%;
     }
 }
 
@@ -2065,6 +2125,23 @@ footer {
     .privacy_cont .imk_cont a {
         padding: 0;
     }
+    .mc4wp-response .mc4wp-error p {
+        width: 100%;
+    }
+    .custom-form input.mail_input {
+        background-position: left 7px;
+    }
+    .email_text {
+        height: 41px;
+        width: 71.6%;
+    }
+    .newsletter_form .submit {
+        padding: 0;
+        width: 28.4%;
+    }
+    .mc4wp-alert {
+        width: 100%;
+    }
 }
 
 @media (max-width:639px) {
@@ -2155,7 +2232,13 @@ footer {
         margin-top: 17px;
     }
     .tabs-main .nav-tabs > li {
-        width: 49%;
+        width: 50%;
+    }
+    .tabs-main .nav-tabs > li:nth-child(3) {
+        clear: both;
+    }
+    .tabs-main .nav-tabs > li:nth-child(4) {
+        clear: none;
     }
     .ineer_content p {
         font-size: 13px;
@@ -2165,15 +2248,19 @@ footer {
         font-size: 16px;
     }
     /*==============404=========*/
-    .heading h1 {
-        font-size: 21px;
-    }
     .post-lft {
         width: 100%;
         margin: 0 0 16px;
     }
     .post-rt {
         width: 100%;
+    }
+    .email_text {
+        width: 66.6%;
+    }
+    .newsletter_form .submit {
+        padding: 0;
+        width: 33.4%;
     }
 }
 
@@ -2197,10 +2284,6 @@ footer {
         padding: 0;
         width: 100%;
         margin: 34px 0 0;
-    }
-    .email_text {
-        height: 41px;
-        width: 68%;
     }
     .resp_non h5 {
         display: none;
@@ -2240,9 +2323,10 @@ footer {
         width: 292px;
     }
     .banner_button a {
-        margin: 0px 0 0 0;
+        margin: 0px 0 12px 0;
         font-size: 12px;
-        padding: 13px 3px;
+        padding: 13px 6px;
+        width: 100%;
     }
     .tabs-main .nav-tabs > li {
         width: 100%;
@@ -2261,6 +2345,23 @@ footer {
     .content_slider p {
         font-size: 14px;
         line-height: 25px;
+    }
+    .banner {
+        height: 318px;
+    }
+    .paddig-top {
+        margin: 86px 0 0;
+    }
+    .tabs-main .nav-tabs > li:nth-child(3) {
+        clear: none;
+    }
+    .tabs-main .nav-tabs > li:nth-child(4) {
+        clear: none;
+    }
+    .inner_banner {
+        left: 0;
+        right: 0;
+        margin: auto;
     }
 }
 

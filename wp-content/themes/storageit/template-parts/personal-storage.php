@@ -109,9 +109,7 @@ get_header(); ?>
                          while ( $loop->have_posts() ) : $loop->the_post();
                           ?>
                             <li data-target="#myCarousel" data-slide-to="<?php echo $i; ?>" class=""></li>
-                            <!--<li data-target="#myCarousel" data-slide-to="1"></li>
-                            <li data-target="#myCarousel" data-slide-to="2"></li>
-                            <li data-target="#myCarousel" data-slide-to="3"></li>-->
+
 							<?php 
 							$i++;
 							endwhile;?>
@@ -144,35 +142,7 @@ get_header(); ?>
                                 <?php
 					            $i++;
 					            endwhile;?>
-                           <!-- <div class="item">
-                                <figure class="client_image text-center">
-                                    <img src="<?php// echo get_template_directory_uri(); ?>/images/client_img.jpg" alt="img">
-                                    <figcaption>John</figcaption>
-                                </figure>
-                                <div class="content_slider text-center display_block">
-                                    <p> <img class="quot_lft" src="<?php //echo get_template_directory_uri(); ?>/images/quote-left.png" alt=""> Storageit offered us the perfect flexible solution whilst moving home! The storage provided was accessible <img class="quot_right" src="<?php// echo get_template_directory_uri(); ?>/images/quote-right.png" alt=""></p>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <figure class="client_image text-center">
-                                    <img src="<?php //echo get_template_directory_uri(); ?>/images/client_img.jpg" alt="img">
-                                    <figcaption>John</figcaption>
-                                </figure>
-                                <div class="content_slider text-center display_block">
-                                    <p> <img class="quot_lft" src="<?php// echo get_template_directory_uri(); ?>/images/quote-left.png" alt=""> Storageit offered us the perfect flexible solution whilst moving home! The storage provided was accessible <img class="quot_right" src="<?php// echo get_template_directory_uri(); ?>/images/quote-right.png" alt=""></p>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <figure class="client_image text-center ">
-                                    <img src="<?php// echo get_template_directory_uri(); ?>/images/client_img.jpg" alt="img">
-                                    <figcaption>John</figcaption>
-                                </figure>
-                                <div class="content_slider text-center display_block">
-                                    <p> <img class="quot_lft" src="<?php// echo get_template_directory_uri(); ?>/images/quote-left.png" alt=""> Storageit offered us the perfect flexible solution whilst moving home! The storage provided was accessible <img class="quot_right" src="<?php// echo get_template_directory_uri(); ?>/images/quote-right.png" alt=""></p>
-                                </div>
-                            </div>-->
+                       
                         </div>
 
                         <!-- Left and right controls -->

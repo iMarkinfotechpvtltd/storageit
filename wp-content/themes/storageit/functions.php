@@ -664,6 +664,16 @@ add_action( 'init', 'post_aboutus' );
 /**********************************login logo****************/
 function custom_loginlogo() {
 echo '<style type="text/css">
+.login h1 a{  background-color: #fff;
+ background-position: center center;
+ background-size: 280px auto !important;
+ border-radius: 2px;
+ height: 70px !important;
+ line-height: normal !important;
+ margin: 0 !important;
+ padding: 10px 0 !important;
+ text-decoration: none;
+ width: 100% !important;}
 h1 a {background-image: url('.get_bloginfo('template_directory').'/images/logo.png) !important; }
 </style>';
 }

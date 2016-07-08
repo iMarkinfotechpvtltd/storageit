@@ -25,7 +25,7 @@ get_header(); ?>
                         <h2><?php echo get_option_tree('banner_heading_text'); ?></h2>
 
                         <div class="banner_button text-center display_block">
-                            <a href="<?php echo get_option_tree('first_link'); ?>" onclick="active();" class="custom"><?php echo get_option_tree('first_link_name_of_banner'); ?></a>
+                            <a href="<?php echo get_option_tree('first_link'); ?>" class="custom"><?php echo get_option_tree('first_link_name_of_banner'); ?></a>
                             <a href="<?php echo get_option_tree('second_link'); ?>"  class="custom"><?php echo get_option_tree('second_link_name_of_banner'); ?></a>
                         </div>
                     </div>
